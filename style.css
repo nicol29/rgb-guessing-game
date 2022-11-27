@@ -1,0 +1,54 @@
+html,
+body {
+    margin: 0%;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    height: 150px;
+    background-color: rgb(69, 163, 254);
+}
+
+.option {
+    height: 40px;
+    width: auto;
+    background-color: lightgray;
+}
+
+.squares div {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+}
+
+.square-container {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    background-color: bisque;
+    padding: 50px;
+}
+
+.squares {
+    display: flex;
+    justify-content: center;
+    width: 680px;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    row-gap: 20px;
+}
+
+.fadeOut {
+    transition: 500ms;
+    opacity: 0;
+}
+
+.fadeIn {
+    transition: 500ms;
+    opacity: 1;
+}
