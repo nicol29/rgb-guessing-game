@@ -1,10 +1,12 @@
 let guessColourDisplayer = document.querySelector('.colour-code');
 let squareContainer = document.querySelector('.squares');
 let difficultyChoices = document.querySelectorAll('.difficulty div');
+let gameStatusPrompt = document.querySelector('.game-status');
 
 let guessColour = `rgb(${Math.floor(Math.random() * 257) * 1}, ${Math.floor(Math.random() * 257) * 1}, ${Math.floor(Math.random() * 257) * 1})`;
 let squareCount = 6;
 let isHardDifficulty = true;
+let didWin = false;
 
 let randomSquare;
 let randColour;
@@ -36,12 +38,14 @@ let createGrids = () => {
 let gameLogic = (squareInfo) => {
     if(squareInfo.style.backgroundColor == guessColour){
         squares.forEach(square => {
+            gameStatusPrompt.innerText = 'Play Again'
+
+
             square.style.backgroundColor = guessColour;
             square.classList.remove('fadeOut');
             square.classList.add('fadeIn');
         });
     } else{
-        resetGame();
         squareInfo.classList.add('fadeOut');
     }
 }
@@ -55,6 +59,9 @@ let resetGame = () => {
 difficultyChoices.forEach(difficulty => difficulty.addEventListener('click', () => {
     if(difficulty.innerText == 'EASY'){
         squareCount = 3;
+        resetGame();
+    } else{
+        squareCount = 6;
         resetGame();
     }
 }));
